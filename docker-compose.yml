@@ -1,0 +1,37 @@
+services:
+  gateway:
+    build: .
+    ports:
+      - "8000:8000"      # Main gateway port
+      - "9090:9090"      # Metrics port
+    environment:
+      - TARGET_API_URL=${TARGET_API_URL:-https://api.openai.com}
+      - TARGET_API_KEY=${TARGET_API_KEY}
+      - MAPPING_BACKEND=${MAPPING_BACKEND:-memory}
+      - ENABLED_LOCALES=${ENABLED_LOCALES:-universal,tn,fr,ma}
+      - AUDIT_LOGGING_ENABLED=true
+      - AUDIT_LOG_PATH=/app/logs/audit.jsonl
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Optional: Redis for distributed deployments
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    profiles:
+      - distributed
+    command: redis-server --requirepass ${REDIS_PASSWORD:-sovereignguard}
+
+volumes:
+  redis_data:

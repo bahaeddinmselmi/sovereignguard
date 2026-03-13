@@ -1,0 +1,34 @@
+# ─── Git ───────────────────────────────────────────────────────────────────────
+.git/
+.gitignore
+
+# ─── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ─── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+
+# ─── Data & Logs (rebuilt at runtime) ──────────────────────────────────────────
+data/
+logs/
+
+# ─── Test & Development ───────────────────────────────────────────────────────
+tests/
+docs/
+examples/
+*.md
+.pytest_cache/
+.coverage
+htmlcov/
+Makefile
+
+# ─── Docker (avoid recursive copies) ──────────────────────────────────────────
+docker-compose*.yml
+Dockerfile
+.dockerignore
+.env*

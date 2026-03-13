@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sovereignguard"
+version = "0.2.0"
+description = "Open source AI Privacy Gateway for GDPR-compliant LLM adoption in EMEA"
+readme = "README.md"
+license = {text = "BSL-1.1"}
+requires-python = ">=3.10"
+authors = [
+    {name = "SovereignGuard Contributors"},
+]
+keywords = ["privacy", "gdpr", "pii", "llm", "proxy", "gateway", "emea", "compliance"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Security",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "httpx>=0.25.0",
+    "openai>=1.54.0",
+    "cryptography>=41.0.0",
+    "structlog>=23.2.0",
+    "prometheus-client>=0.19.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+redis = ["redis>=5.0.0", "hiredis>=2.2.0"]
+dev = ["pytest>=7.4.0", "pytest-asyncio>=0.21.0", "pytest-cov>=4.1.0"]
+
+[project.urls]
+Homepage = "https://github.com/sovereignguard/sovereignguard"
+Documentation = "https://github.com/sovereignguard/sovereignguard/tree/main/docs"
+Repository = "https://github.com/sovereignguard/sovereignguard"
+Issues = "https://github.com/sovereignguard/sovereignguard/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["sovereignguard*"]

@@ -1,0 +1,85 @@
+{
+  "policies": [
+    {
+      "name": "default",
+      "description": "Mask all PII types (strictest policy)",
+      "default_action": "mask",
+      "rules": []
+    },
+    {
+      "name": "customer_service",
+      "description": "Mask names and IDs but allow emails through for support workflows",
+      "default_action": "mask",
+      "rules": [
+        {
+          "entity_types": ["EMAIL"],
+          "action": "pass"
+        }
+      ]
+    },
+    {
+      "name": "department_manager",
+      "description": "Minimal masking — only mask national IDs and credit cards",
+      "default_action": "pass",
+      "rules": [
+        {
+          "entity_types": ["TN_NATIONAL_ID", "FR_NIR", "MA_CIN", "CREDIT_CARD"],
+          "action": "mask"
+        }
+      ]
+    },
+    {
+      "name": "finance",
+      "description": "Mask financial amounts above 10,000 and all PII",
+      "default_action": "mask",
+      "rules": [
+        {
+          "entity_types": ["FINANCIAL_AMOUNT"],
+          "action": "mask",
+          "condition": {
+            "field": "numeric_value",
+            "operator": "gt",
+            "value": 10000
+          }
+        },
+        {
+          "entity_types": ["FINANCIAL_AMOUNT"],
+          "action": "pass",
+          "condition": {
+            "field": "numeric_value",
+            "operator": "lte",
+            "value": 10000
+          }
+        }
+      ]
+    },
+    {
+      "name": "audit_read_only",
+      "description": "Redact everything — no reversible tokens, just [REDACTED]",
+      "default_action": "redact",
+      "rules": []
+    }
+  ],
+  "role_bindings": [
+    {
+      "api_key": "sg-support-key-001",
+      "role": "customer_service",
+      "policy": "customer_service"
+    },
+    {
+      "api_key": "sg-manager-key-001",
+      "role": "department_manager",
+      "policy": "department_manager"
+    },
+    {
+      "api_key": "sg-finance-key-001",
+      "role": "finance",
+      "policy": "finance"
+    },
+    {
+      "api_key": "sg-auditor-key-001",
+      "role": "auditor",
+      "policy": "audit_read_only"
+    }
+  ]
+}

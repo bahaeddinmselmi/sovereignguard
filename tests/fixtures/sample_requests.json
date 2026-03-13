@@ -1,0 +1,13 @@
+{
+  "chat_requests": [
+    {
+      "model": "gpt-4o-mini",
+      "messages": [
+        {
+          "role": "user",
+          "content": "My name is Mohamed, CIN 12345678, phone +216 98 765 432"
+        }
+      ]
+    }
+  ]
+}

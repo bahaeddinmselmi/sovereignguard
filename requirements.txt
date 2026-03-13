@@ -1,0 +1,31 @@
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# HTTP Client
+httpx==0.25.2
+openai==1.54.4
+
+# Encryption
+cryptography==41.0.7
+
+# Logging & Monitoring
+structlog==23.2.0
+prometheus-client==0.19.0
+
+# Redis (optional, for distributed deployments)
+redis==5.0.1
+hiredis==2.2.3
+
+# HashiCorp Vault (optional, for security-standard mapping backend)
+hvac==2.3.0
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+
+# Development
+python-dotenv==1.0.0
