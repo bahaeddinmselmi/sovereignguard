@@ -11,7 +11,7 @@ Built with an EMEA-first data sovereignty mindset, including locale-aware recogn
 Input from your app:
 
 ```text
-"Call Mohamed Ben Ali at +216 98 765 432, CIN 12345678"
+"Call baha at xxx, CIN 12345678"
 ```
 
 What upstream receives:
@@ -23,7 +23,7 @@ What upstream receives:
 What your app gets back:
 
 ```text
-"Call Mohamed Ben Ali at +216 98 765 432, CIN 12345678"
+"Call baha at xxx, CIN 12345678"
 ```
 
 ## Full Documentation
@@ -199,7 +199,7 @@ response = client.chat.completions.create(
           messages=[
                     {
                               "role": "user",
-                              "content": "Contact Mohamed Ben Ali at mohamed@example.com and +216 98 765 432.",
+                              "content": "Contact baha at baha@example.com and xxx.",
                     }
           ],
 )
