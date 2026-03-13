@@ -11,7 +11,7 @@ Built with an EMEA-first data sovereignty mindset, including locale-aware recogn
 Input from your app:
 
 ```text
-"Call baha at xxx, CIN 12345678"
+"Call Baha at +216 XX XXX XXX, CIN 12345678"
 ```
 
 What upstream receives:
@@ -23,8 +23,12 @@ What upstream receives:
 What your app gets back:
 
 ```text
-"Call baha at xxx, CIN 12345678"
+"Call Baha at +216 XX XXX XXX, CIN 12345678"
 ```
+
+> Built by [@bahaeddinmselmi](https://github.com/bahaeddinmselmi)
+> - founder of [Recouvr AI](https://recouvr.dev),
+> where SovereignGuard runs in production.
 
 ## Full Documentation
 
@@ -138,7 +142,7 @@ Recognizer behavior is heuristic and pattern-based. You should validate it again
 ### Docker
 
 ```bash
-git clone https://github.com/sovereignguard/sovereignguard
+git clone https://github.com/bahaeddinmselmi/sovereignguard
 cd sovereignguard
 copy .env.example .env
 ```
