@@ -9,7 +9,7 @@ This file is the consolidated documentation for the project. It combines product
 Input from your app:
 
 ```text
-"Call Mohamed Ben Ali at +216 98 765 432, CIN 12345678"
+"Call baha at xxx, CIN 12345678"
 ```
 
 What the upstream model sees:
@@ -21,7 +21,7 @@ What the upstream model sees:
 What your app receives back:
 
 ```text
-"Call Mohamed Ben Ali at +216 98 765 432, CIN 12345678"
+"Call baha at xxx, CIN 12345678"
 ```
 
 The provider processes tokens, not raw identifiers.
@@ -227,7 +227,7 @@ response = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "Contact Mohamed Ben Ali at mohamed@example.com and +216 98 765 432.",
+            "content": "Contact baha at baha@example.com and xxx.",
         }
     ],
 )
@@ -597,7 +597,7 @@ Example request:
   "messages": [
     {
       "role": "user",
-      "content": "Email user@example.com and call +216 98 765 432."
+      "content": "Email user@example.com and call xxx."
     }
   ]
 }

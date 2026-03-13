@@ -67,7 +67,7 @@ Example request:
 	"messages": [
 		{
 			"role": "user",
-			"content": "Email user@example.com and call +216 98 765 432."
+			"content": "Email user@example.com and call xxx."
 		}
 	]
 }

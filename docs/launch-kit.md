@@ -11,7 +11,7 @@ Shot list:
 1. Show input prompt in terminal:
 
 ```text
-Call Mohamed Ben Ali at +216 98 765 432, CIN 12345678
+Call baha at xxx, CIN 12345678
 ```
 
 2. Show the forwarded upstream payload in logs (tokenized):
@@ -23,7 +23,7 @@ Call {{SG_PERSON_NAME_a3f9b2}} at {{SG_TN_PHONE_c4d5e6}}, {{SG_TN_NATIONAL_ID_f7
 3. Show final response returned to client (restored):
 
 ```text
-Call Mohamed Ben Ali at +216 98 765 432, CIN 12345678
+Call baha at xxx, CIN 12345678
 ```
 
 4. End on one line:
@@ -58,7 +58,7 @@ curl http://localhost:8000/v1/chat/completions \
   -d '{
     "model": "gpt-4o-mini",
     "messages": [
-      {"role": "user", "content": "Call Mohamed Ben Ali at +216 98 765 432, CIN 12345678"}
+      {"role": "user", "content": "Call baha at xxx, CIN 12345678"}
     ]
   }'
 ```
@@ -74,7 +74,7 @@ We just open sourced a tool for EMEA teams blocked on AI compliance.
 SovereignGuard sits between your app and OpenAI/Anthropic.
 
 Before provider call:
-"Call Mohamed Ben Ali at +216 98 765 432, CIN 12345678"
+"Call baha at xxx, CIN 12345678"
 
 What the model sees:
 "Call {{SG_PERSON_NAME_a3f9b2}} at {{SG_TN_PHONE_c4d5e6}}, {{SG_TN_NATIONAL_ID_f7e3b1}}"

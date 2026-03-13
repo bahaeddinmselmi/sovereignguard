@@ -40,7 +40,7 @@ direct_body= {"id":"928ad8db-b4bc-4ea8-9fdf-e58ca5dbf7c3","object":"chat.complet
 Command:
 
 ```powershell
-$env:TARGET_API_KEY='sk-***REDACTED***'; $env:TARGET_API_URL='https://api.deepseek.com'; $env:TARGET_PROVIDER='openai'; $env:GATEWAY_API_KEYS='["sg-client-key-1"]'; python -c "from fastapi.testclient import TestClient; from sovereignguard.main import app; c=TestClient(app); body={'model':'deepseek-chat','messages':[{'role':'user','content':'Contact Mohamed Ben Ali at +216 98 765 432. Reply with one short sentence.'}]}; r=c.post('/v1/chat/completions', json=body, headers={'Authorization':'Bearer sg-client-key-1'}); print('gateway_status=',r.status_code); data=r.json(); print('gateway_json_keys=',list(data.keys())); msg=data.get('choices',[{}])[0].get('message',{}).get('content',''); print('gateway_response=',msg[:300]);"
+$env:TARGET_API_KEY='sk-***REDACTED***'; $env:TARGET_API_URL='https://api.deepseek.com'; $env:TARGET_PROVIDER='openai'; $env:GATEWAY_API_KEYS='["sg-client-key-1"]'; python -c "from fastapi.testclient import TestClient; from sovereignguard.main import app; c=TestClient(app); body={'model':'deepseek-chat','messages':[{'role':'user','content':'Contact baha at xxx. Reply with one short sentence.'}]}; r=c.post('/v1/chat/completions', json=body, headers={'Authorization':'Bearer sg-client-key-1'}); print('gateway_status=',r.status_code); data=r.json(); print('gateway_json_keys=',list(data.keys())); msg=data.get('choices',[{}])[0].get('message',{}).get('content',''); print('gateway_response=',msg[:300]);"
 ```
 
 Request body:
@@ -51,7 +51,7 @@ Request body:
   "messages": [
     {
       "role": "user",
-      "content": "Contact Mohamed Ben Ali at +216 98 765 432. Reply with one short sentence."
+      "content": "Contact baha at xxx. Reply with one short sentence."
     }
   ]
 }
@@ -64,7 +64,7 @@ CONFIG WARNING: No ALLOWED_ORIGINS set — CORS will allow all origins.
 HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
 gateway_status= 200
 gateway_json_keys= ['id', 'object', 'created', 'model', 'choices', 'usage', 'system_fingerprint']
-gateway_response= This is Contact Mohamed Ben Ali from +216 98 765 432.
+gateway_response= This is Contact baha from xxx.
 ```
 
 Observed audit/runtime notes:
